@@ -1,6 +1,6 @@
 import aiohttp
-import asyncio
-import Logger
+from kernels.Logger import Logger
+
 
 async def SendMassage(token, ids, message):
     url = f"https://api.telegram.org/bot{token}/sendMessage"

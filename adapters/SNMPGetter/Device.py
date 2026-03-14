@@ -1,8 +1,9 @@
 from SNMPGetter import GetOIDInfo
-import TelegramSendAlert
-import GlobalInfo
+from adapters.TelegramSendAlert import TelegramSendAlert
+from kernels.GlobalInfo import GlobalInfo
 import asyncio
-import Logger
+from kernels.Logger import Logger
+
 
 class Device:
     def __init__(self, name, IP):

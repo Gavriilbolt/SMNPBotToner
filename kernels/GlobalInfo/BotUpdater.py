@@ -1,7 +1,8 @@
 import ConfigReader
 import GlobalInfo
-import Device
-import Logger
+from adapters.SNMPGetter import Device
+from kernels.Logger import Logger
+
 
 def InitPrinters():
     printers = []

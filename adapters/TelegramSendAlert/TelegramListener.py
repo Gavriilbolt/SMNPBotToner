@@ -1,8 +1,8 @@
 import aiohttp
 import asyncio
-import GlobalInfo
-import Logger
-import BotUpdater
+from kernels.GlobalInfo import GlobalInfo
+from kernels.Logger import Logger
+
 
 async def CommandListener(token, ids):
     url = f"https://api.telegram.org/bot{token}/getUpdates"
@@ -55,7 +55,7 @@ async def CommandListener(token, ids):
 async def sendFile(token, chatID):
     url = f"https://api.telegram.org/bot{token}/sendDocument"
     try:
-        with open("bot.log", "rb") as f:
+        with open("../../kernels/GlobalInfo/bot.log", "rb") as f:
             data = aiohttp.FormData()
             data.add_field('chat_id', str(chatID))
             data.add_field('document', f, filename='bot_logs.txt')
@@ -87,5 +87,3 @@ async def sendMessage(token, chatID, msg):
     except Exception as e:
         Logger.logger.error(f"Ошибка отправки при исключении: {e}")
 
-
-    

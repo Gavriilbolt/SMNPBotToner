@@ -76,5 +76,5 @@ logs/
 .DS_Store
 Thumbs.db
 
-config.json
-bot.log
+kernels/GlobalInfo/config.json
+kernels/GlobalInfo/bot.log

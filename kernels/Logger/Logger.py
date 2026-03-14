@@ -1,5 +1,5 @@
 import logging
-import GlobalInfo
+from kernels.GlobalInfo import GlobalInfo
 from logging.handlers import RotatingFileHandler
 
 def CreateLogger():
@@ -12,7 +12,7 @@ def CreateLogger():
     consoleHandler.setFormatter(formatt)
     logger.addHandler(consoleHandler)
 
-    fileHandler = RotatingFileHandler("bot.log", maxBytes=1024*1024, backupCount=2, encoding="utf-8")
+    fileHandler = RotatingFileHandler("../GlobalInfo/bot.log", maxBytes=1024 * 1024, backupCount=2, encoding="utf-8")
     fileHandler.setFormatter(formatt)
     logger.addHandler(fileHandler)
     return logger

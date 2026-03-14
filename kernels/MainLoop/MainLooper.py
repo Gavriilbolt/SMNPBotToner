@@ -1,12 +1,9 @@
-import Device
-import GlobalInfo
-import asyncio 
-import TelegramSendAlert
-import TelegramListener
-import Logger
-import BotUpdater
+import asyncio
+from adapters.TelegramSendAlert import TelegramListener
+from kernels.GlobalInfo import BotUpdater, GlobalInfo
 
-async def MainLoop():
+
+async def MainLoopLogic():
     GlobalInfo.Info.printers = BotUpdater.InitPrinters()
 
     listenTask = TelegramListener.CommandListener(GlobalInfo.Info.tgToken, GlobalInfo.Info.tgIDs)
@@ -22,12 +19,6 @@ async def MainLoop():
 
     await asyncio.gather(listenTask, checkTask)
         
-if __name__ == "__main__":
-    #try:
-        asyncio.run(MainLoop())
-    #except Exception as e:
-        #Logger.logger.error(f"Ошибка: {e}")
-        #msg = f"<strong> Программа была завершена с ошибкой: </strong> {e}"
-        #asyncio.run(TelegramSendAlert.SendMassage(GlobalInfo.Info.tgToken, GlobalInfo.Info.tgIDs, msg))
-
+def MainLoop():
+    asyncio.run(MainLoopLogic())
 

@@ -1,5 +1,6 @@
 import json
-import Logger
+from kernels.Logger import Logger
+
 
 def loadConfig():
     try:
